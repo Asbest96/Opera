@@ -30,7 +30,6 @@ public class OperaSalesAppApplication {
         operaService.deleteOpera(opera2);
         operaService.printAll();
 
-
     }
 
 }
