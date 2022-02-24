@@ -1,13 +1,15 @@
 package ru.learnup.spring.boot.operasalesapp.services;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import ru.learnup.spring.boot.operasalesapp.annotations.Notifiable;
 import ru.learnup.spring.boot.operasalesapp.entity.Opera;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+@Service
 public class OperaService {
 
 
@@ -32,7 +34,7 @@ public class OperaService {
             }
         }
     }
-
+    @Notifiable
     public void buyTicket(String name) {
         System.out.println("Билет на " + name + "куплен");
     }

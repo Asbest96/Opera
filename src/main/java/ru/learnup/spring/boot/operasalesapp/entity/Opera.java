@@ -1,5 +1,8 @@
 package ru.learnup.spring.boot.operasalesapp.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Opera {
 
     private String name;
