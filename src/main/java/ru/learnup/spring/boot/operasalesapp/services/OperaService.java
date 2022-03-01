@@ -1,39 +1,36 @@
 package ru.learnup.spring.boot.operasalesapp.services;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.learnup.spring.boot.operasalesapp.annotations.Notifiable;
 import ru.learnup.spring.boot.operasalesapp.entity.Opera;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import ru.learnup.spring.boot.operasalesapp.repositories.OperaRepository;
 
 @Service
 public class OperaService {
 
 
-    private List<Opera> operaList = new ArrayList<>();
+    private final OperaRepository operaRepository;
 
-    public void addOpera (Opera opera) {
-        operaList.add(opera);
+    public OperaService(OperaRepository operaRepository) {
+        this.operaRepository = operaRepository;
     }
 
-    public void deleteOpera (Opera opera) {
-        operaList.remove(opera);
+    public void addOpera(Opera opera) {
+        operaRepository.save(opera);
     }
 
-    public void printAll () {
-        System.out.println(operaList);
+    public void deleteOpera(Opera opera) {
+        operaRepository.delete(opera);
     }
 
-    public void printOpera (Opera opera) {
-        for (Opera concert : operaList ){
-            if(concert.getName().equals(opera.getName())){
-                System.out.println(concert);
-            }
-        }
+    public void printAll() {
+        operaRepository.findAll();
     }
+
+    public void printOpera(int id) {
+        operaRepository.findById((long) id);
+    }
+
     @Notifiable
     public void buyTicket(String name) {
         System.out.println("Билет на " + name + "куплен");

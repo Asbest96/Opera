@@ -1,14 +1,30 @@
 package ru.learnup.spring.boot.operasalesapp.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
-public class Opera {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Operas")
+@Data
+
+public class Opera {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "age")
     private int age;
+    @Column(name = "seats")
     private int seats;
+
 
     public Opera(String name, String description, int age, int seats) {
         this.name = name;
@@ -17,50 +33,7 @@ public class Opera {
         this.seats = seats;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    @Override
-    public String toString() {
-        return "Opera{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", age=" + age +
-                ", seats=" + seats +
-                '}';
-    }
-
     public Opera() {
+
     }
-
-
 }

@@ -23,11 +23,8 @@ public class OperaSalesAppApplication {
         operaService.buyTicket("Opera 1");
         operaService.sellTicket("Opera 1");
 
-        operaService.printOpera(opera1);
-        operaService.printAll();
-
         operaService.deleteOpera(opera2);
-        operaService.printAll();
+
 
     }
 
